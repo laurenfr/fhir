@@ -14,7 +14,7 @@
 # limitations under the License.
 
 function try_build() {
-  bazel build "$1"
+  bazel build "$1" --sandbox_block_path=/usr/local
   if [[ $? -ne 0 ]]
   then
    echo Build Failed: "$1"

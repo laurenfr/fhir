@@ -18,6 +18,7 @@ set -eu
 ROOT_PATH=../..
 SRC_ROOT="proto/r4/core"
 PROTO_GENERATOR=${ROOT_PATH}/bazel-bin/java/ProtoGenerator
+echo $PROTO_GENERATOR
 
 OUTPUT_PATH="$(dirname $0)/../../proto/r4/core"
 

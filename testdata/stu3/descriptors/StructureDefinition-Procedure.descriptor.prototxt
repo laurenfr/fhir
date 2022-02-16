@@ -305,7 +305,7 @@ field {
   type: TYPE_MESSAGE
   type_name: ".google.fhir.stu3.proto.Reference"
   options {
-    [google.fhir.proto.field_description]: "A condition that\302\240is a result of the procedure"
+    [google.fhir.proto.field_description]: "A condition that is a result of the procedure"
     [google.fhir.proto.valid_reference_type]: "Condition"
   }
 }

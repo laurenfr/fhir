@@ -1,4 +1,5 @@
 load("//bazel:proto.bzl", "fhir_proto_library")
+load("//bazel:protogen.bzl", "gen_fhir_protos")
 
 package(
     default_visibility = ["//visibility:public"],
@@ -15,6 +16,12 @@ fhir_proto_library(
     ],
     proto_library_prefix = "datatypes",
 )
+
+gen_fhir_protos(
+    name = "core",
+    package = "//spec:fhir_r4",
+)
+
 
 fhir_proto_library(
     srcs = ["codes.proto"],

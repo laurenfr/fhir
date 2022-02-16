@@ -104,7 +104,7 @@ def gen_fhir_protos(
     all_fhir_pkgs = package_deps + [
         package,
         STU3_PACKAGE_DEP,
-        R4_PACKAGE_DEP,
+#        R4_PACKAGE_DEP,
     ]
     src_pkgs = [_get_zip_for_pkg(pkg) for pkg in all_fhir_pkgs]
 
