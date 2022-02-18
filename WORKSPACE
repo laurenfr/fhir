@@ -3,6 +3,9 @@ workspace(name = "com_google_fhir")
 load("//bazel:dependencies.bzl", "fhirproto_dependencies")
 fhirproto_dependencies(core_lib = True)
 
+load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
+protobuf_deps()
+
 load("//bazel:workspace.bzl", "fhirproto_workspace")
 fhirproto_workspace(core_lib = True)
 
@@ -26,6 +29,3 @@ http_archive(
 # Needed for the jarjar_library rule.
 load("@google_bazel_common//:workspace_defs.bzl", "google_common_workspace_rules")
 google_common_workspace_rules()
-
-load("@org_golang_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
-protobuf_deps()
