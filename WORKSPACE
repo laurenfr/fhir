@@ -3,6 +3,9 @@ workspace(name = "com_google_fhir")
 load("//bazel:dependencies.bzl", "fhirproto_dependencies")
 fhirproto_dependencies(core_lib = True)
 
+load("//bazel:go_dependencies.bzl", "fhir_go_dependencies")
+fhir_go_dependencies()
+
 load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 protobuf_deps()
 
@@ -14,9 +17,6 @@ pip_install(
    name = "fhir_bazel_pip_dependencies",
    requirements = "//bazel:requirements.txt",
 )
-
-load("//bazel:go_dependencies.bzl", "fhir_go_dependencies")
-fhir_go_dependencies()
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 http_archive(
