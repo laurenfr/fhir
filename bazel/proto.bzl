@@ -59,7 +59,7 @@ def fhir_proto_library(proto_library_prefix, srcs = [], proto_deps = [], **kwarg
     py_grpc_library(
         name = proto_library_prefix + "_py_pb2_grpc",
         srcs = srcs,
-        deps = py_deps.append(proto_library_prefix + "_py_pb2"),
+        deps = [":" + proto_library_prefix + "_py_pb2"],
         default_runtime = "@com_google_protobuf//:protobuf_python",
         protoc = "@com_google_protobuf//:protoc",
         **kwargs
@@ -72,9 +72,9 @@ def fhir_proto_library(proto_library_prefix, srcs = [], proto_deps = [], **kwarg
 
     cc_grpc_library(
         name = proto_library_prefix + "_cc_grpc",
-        srcs = [proto_library_prefix + "_proto"],
+        srcs = [":" + proto_library_prefix + "_proto"],
         grpc_only = True,
-        deps = [proto_library_prefix + "_cc_proto"],
+        deps = [":" + proto_library_prefix + "_cc_proto"],
     )
 
     native.java_proto_library(
