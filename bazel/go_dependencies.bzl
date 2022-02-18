@@ -57,9 +57,6 @@ def fhir_go_dependencies():
         tag = "v1.25.0",
     )
 
-    load("@org_golang_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
-    protobuf_deps()
-
     go_repository(
         name = "com_github_modern_go_reflect2",
         importpath = "github.com/modern-go/reflect2",
