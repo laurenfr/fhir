@@ -2,15 +2,12 @@
 
 load("@rules_jvm_external//:defs.bzl", "maven_install")
 load("@rules_proto_grpc//:repositories.bzl", "rules_proto_grpc_toolchains", "rules_proto_grpc_repos")
-load("@rules_proto//proto:repositories.bzl", "rules_proto_dependencies", "rules_proto_toolchains")
 
 def fhirproto_workspace(core_lib = False):
     """ Sets up FhirProto workspace """
 
     rules_proto_grpc_toolchains()
     rules_proto_grpc_repos()
-    rules_proto_dependencies()
-    rules_proto_toolchains()
 
     maven_install(
         artifacts = [

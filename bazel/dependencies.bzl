@@ -1,6 +1,7 @@
 """ Function for loading dependencies of the FhirProto library """
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 def fhirproto_dependencies(core_lib = False):
     """ Sets up FhirProto dependencies
@@ -157,11 +158,10 @@ def fhirproto_dependencies(core_lib = False):
         ],
     )
 
-    http_archive(
+    git_repository(
         name = "com_github_grpc",
-        sha256 = "b391a327429279f6f29b9ae7e5317cd80d5e9d49cc100e6d682221af73d984a6",
-        strip_prefix = "grpc-93e8830070e9afcbaa992c75817009ee3f4b63a0",  # v1.24.3 with fixes
-        urls = ["https://github.com/grpc/grpc/archive/93e8830070e9afcbaa992c75817009ee3f4b63a0.zip"],
+        tag = " v1.42.0",
+        remote = "https://github.com/grpc/grpc",
     )
 
     http_archive(
