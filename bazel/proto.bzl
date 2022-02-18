@@ -2,11 +2,8 @@
 """
 
 load("@rules_proto//proto:defs.bzl", "proto_library")
-#load("@rules_cc//cc:defs.bzl", "cc_proto_library")
 load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
-#load("@com_google_protobuf//:protobuf.bzl", "py_proto_library")
 load("@rules_proto_grpc//cpp:defs.bzl", "cpp_grpc_library")
-#load("@rules_proto_grpc//cpp:defs.bzl", "cpp_proto_library")
 load("@rules_proto_grpc//python:defs.bzl", "python_grpc_library")
 
 WELL_KNOWN_PROTOS = ["descriptor_proto", "any_proto"]
@@ -48,31 +45,17 @@ def fhir_proto_library(proto_library_prefix, srcs = [], proto_deps = [], **kwarg
         **kwargs
     )
 
-#    py_proto_library(
-#        name = proto_library_prefix + "_py_pb2",
-#        srcs = srcs,
-#        deps = py_deps,
-#        default_runtime = "@com_google_protobuf//:protobuf_python",
-#        protoc = "@com_google_protobuf//:protoc",
-#        **kwargs
-#    )
-
     python_grpc_library(
         name = proto_library_prefix + "_py_pb2_grpc",
         protos =  [":" + proto_library_prefix + "_proto"],
-#        deps = [":" + proto_library_prefix + "_py_pb2"],
-#        **kwargs
+        deps = py_deps
     )
-#
-#    cc_proto_library(
-#        name = proto_library_prefix + "_cc_proto",
-#        deps = [proto_library_prefix + "_proto"],
-#    )
+
 
     cpp_grpc_library(
         name = proto_library_prefix + "_cc_grpc",
         protos = [":" + proto_library_prefix + "_proto"],
-#        deps = [":" + proto_library_prefix + "_cc_proto"],
+        deps = cc_deps
     )
 
     native.java_proto_library(
