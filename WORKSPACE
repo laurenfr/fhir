@@ -29,7 +29,3 @@ http_archive(
 # Needed for the jarjar_library rule.
 load("@google_bazel_common//:workspace_defs.bzl", "google_common_workspace_rules")
 google_common_workspace_rules()
-
-load("//bazel:cc_grpc_library.bzl", "cc_grpc_library")
-load("//bazel:grpc_build_system.bzl", "grpc_proto_library")
-load("//bazel:python_rules.bzl", "py_grpc_library")
