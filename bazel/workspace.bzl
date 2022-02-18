@@ -1,9 +1,13 @@
 """ Provides a function for setting up the FhirProto workspace """
 
 load("@rules_jvm_external//:defs.bzl", "maven_install")
+load("@rules_proto_grpc//:repositories.bzl", "rules_proto_grpc_toolchains", "rules_proto_grpc_repos")
 
 def fhirproto_workspace(core_lib = False):
     """ Sets up FhirProto workspace """
+
+    rules_proto_grpc_toolchains()
+    rules_proto_grpc_repos()
 
     maven_install(
         artifacts = [
