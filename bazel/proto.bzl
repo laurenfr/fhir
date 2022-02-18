@@ -53,8 +53,7 @@ def fhir_proto_library(proto_library_prefix, srcs = [], proto_deps = [], **kwarg
 
     cpp_grpc_library(
         name = proto_library_prefix + "_cc_grpc",
-        protos = [":" + proto_library_prefix + "_proto"],
-        deps = go_deps
+        protos = [":" + proto_library_prefix + "_proto"]
     )
 
     native.java_proto_library(
