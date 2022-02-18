@@ -160,7 +160,7 @@ def fhirproto_dependencies(core_lib = False):
 
     git_repository(
         name = "com_github_grpc",
-        tag = " v1.42.0",
+        tag = "v1.42.0",
         remote = "https://github.com/grpc/grpc",
     )
 
