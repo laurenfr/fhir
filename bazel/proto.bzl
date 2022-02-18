@@ -58,7 +58,7 @@ def fhir_proto_library(proto_library_prefix, srcs = [], proto_deps = [], **kwarg
 
     py_grpc_library(
         name = proto_library_prefix + "_py_pb2_grpc",
-        srcs = srcs,
+        srcs =  [":" + proto_library_prefix + "_proto"],
         deps = [":" + proto_library_prefix + "_py_pb2"],
         **kwargs
     )
