@@ -1,7 +1,6 @@
 """ Provides a function for setting up the FhirProto workspace """
 
 load("@rules_jvm_external//:defs.bzl", "maven_install")
-load("@com_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 
 def fhirproto_workspace(core_lib = False):
     """ Sets up FhirProto workspace """
@@ -32,8 +31,6 @@ def fhirproto_workspace(core_lib = False):
             "https://repo1.maven.org/maven2",
         ],
     )
-
-    protobuf_deps()
 
     native.bind(
         name = "gson",
