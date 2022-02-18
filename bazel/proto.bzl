@@ -60,6 +60,7 @@ def fhir_proto_library(proto_library_prefix, srcs = [], proto_deps = [], **kwarg
         name = proto_library_prefix + "_py_pb2_grpc",
         srcs =  [":" + proto_library_prefix + "_proto"],
         deps = [":" + proto_library_prefix + "_py_pb2"],
+        _protoc = "@com_google_protobuf//:protoc",
         **kwargs
     )
 
