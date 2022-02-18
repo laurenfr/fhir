@@ -2,14 +2,12 @@
 
 load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_dependencies")
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
-load("@org_golang_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
 
 def fhir_go_dependencies():
     """ Loads dependencies of the Go FHIR library"""
     go_rules_dependencies()
     go_register_toolchains()
     gazelle_dependencies()
-    protobuf_deps()
 
     go_repository(
         name = "com_github_pkg_errors",
@@ -58,6 +56,9 @@ def fhir_go_dependencies():
         importpath = "google.golang.org/protobuf",
         tag = "v1.25.0",
     )
+
+    load("@org_golang_google_protobuf//:protobuf_deps.bzl", "protobuf_deps")
+    protobuf_deps()
 
     go_repository(
         name = "com_github_modern_go_reflect2",
