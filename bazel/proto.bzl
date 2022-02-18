@@ -5,8 +5,8 @@ load("@rules_proto//proto:defs.bzl", "proto_library")
 load("@rules_cc//cc:defs.bzl", "cc_proto_library")
 load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
 load("@com_google_protobuf//:protobuf.bzl", "py_proto_library")
-load("@com_github_grpc_grpc//bazel:cc_grpc_library.bzl", "cc_grpc_library")
-load("@com_github_grpc_grpc//bazel:python_rules.bzl", "py_grpc_library")
+load("@com_github_grpc//bazel:cc_grpc_library.bzl", "cc_grpc_library")
+load("@com_github_grpc//bazel:python_rules.bzl", "py_grpc_library")
 
 WELL_KNOWN_PROTOS = ["descriptor_proto", "any_proto"]
 GO_WELL_KNOWN_PROTOS = {
