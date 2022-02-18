@@ -29,5 +29,3 @@ http_archive(
 # Needed for the jarjar_library rule.
 load("@google_bazel_common//:workspace_defs.bzl", "google_common_workspace_rules")
 google_common_workspace_rules()
-
-
